@@ -1,5 +1,15 @@
 class TweetsController < ApplicationController
 
+
+  get '/tweets' do #tweets page request 
+    @current_user = User.find_by_id(session[:user_id])
+    if @current_user 
+      erb :"/tweets"
+    else 
+      erb :"/sessions/failure"
+    end  
+  end 
+  
   get '/tweets/new' do #new tweets page request
     erb :"tweets/new"
   end
