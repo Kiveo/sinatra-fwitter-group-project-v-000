@@ -11,8 +11,8 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/signup' do #signup page request
-    erb :signup
+  get '/registrations/signup' do
+      erb :'/registrations/signup'
   end
 
   post '/signup' do #signup
