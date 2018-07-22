@@ -35,7 +35,7 @@ class ApplicationController < Sinatra::Base
     erb :"/sessions/failure"
   end
 
-  get '/sessions/login' do #login page request
+  get '/login' do #login page request
     erb :"/sessions/login"
   end
 
