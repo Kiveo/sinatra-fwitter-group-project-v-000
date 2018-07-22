@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
 
   get "/tweets/:id" do #single tweet page request
     @tweet = Tweet.find_by_id(params[:id])
-    erb :"/tweets/#{@tweet.id}"
+    erb :"/tweets/show"
   end
 
   get "/tweets/:id/edit" do #edit tweet page request
