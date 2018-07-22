@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
     @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
     if @user.save
       session[:user_id] = @user.id
-      redirect :"/users/home"
+      redirect :"/tweets"
     else
       redirect :"/sessions/failure"
     end
@@ -50,4 +50,14 @@ class ApplicationController < Sinatra::Base
     redirect :"/sessions/login"
   end
 
+  helpers do
+		def logged_in?
+			!!session[:user_id]
+		end
+
+		def current_user
+			User.find(session[:user_id])
+		end
+	end
+  
 end
