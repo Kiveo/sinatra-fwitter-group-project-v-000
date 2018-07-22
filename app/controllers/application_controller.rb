@@ -18,12 +18,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/signup' do #signup and redirect
-    @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
-    if @user.save
+    if params[:username] == "" || params[:password] == ""
+      redirect :"/sessions/failure"
+    else
+      @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
       session[:user_id] = @user.id
       redirect :"/tweets"
-    else
-      redirect :"/sessions/failure"
     end
   end
 
