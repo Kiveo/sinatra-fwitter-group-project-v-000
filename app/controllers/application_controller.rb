@@ -13,11 +13,11 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/registrations/signup' do #signup page request
+  get '/signup' do #signup page request
     erb :'/registrations/signup'
   end
 
-  post '/registrations' do #signup and redirect
+  post '/' do #signup and redirect
     user = User.create(:username => params[:username], :password => params[:password])
 
     redirect '/users/home'
