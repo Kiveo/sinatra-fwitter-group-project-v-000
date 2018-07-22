@@ -13,7 +13,6 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/create'
   get '/signup' do #signup page request
     erb :'/registrations/signup'
   end

@@ -4,5 +4,5 @@ class UsersController < ApplicationController
     @user = User.find(session[:id])
     erb :"/users/home"
   end
-  
+
 end
