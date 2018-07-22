@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
   post '/signup' do #signup and redirect
     @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
     if @user.save
-      session[id] = params[:id]
+      session[:user_id] = @user.id
       redirect :"/users/home"
     else
       redirect :"/sessions/failure"
