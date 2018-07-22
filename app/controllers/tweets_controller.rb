@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
   delete "/tweets/:id/delete" do #delete
     @tweet = Tweet.find_by_id(params[:id])
     @tweet.delete
-    redirect :"/tweets/deleted"
+    erb :"tweets/deleted"
   end
 
 
