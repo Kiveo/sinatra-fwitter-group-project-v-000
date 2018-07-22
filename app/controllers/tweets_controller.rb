@@ -6,6 +6,7 @@ class TweetsController < ApplicationController
 
   post '/tweets' do #create tweet and redirect
     @tweet = Tweet.create(params[:tweet])
+    redirect :"/tweets/#{tweet.id}"
   end
 
 end
