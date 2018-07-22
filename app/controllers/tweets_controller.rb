@@ -9,4 +9,8 @@ class TweetsController < ApplicationController
     redirect :"/tweets/#{tweet.id}"
   end
 
+  get "/tweets/:id" do #single tweet page request
+    @tweet = Tweet.find_by_id(params[:id])
+    erb :"/tweets/#{tweet.id}"
+  end
 end
