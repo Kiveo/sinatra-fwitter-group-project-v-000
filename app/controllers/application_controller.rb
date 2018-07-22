@@ -11,11 +11,11 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/registrations/signup' do
+  get '/registrations/signup' do #signup page request
       erb :'/registrations/signup'
   end
 
-  post '/signup' do #signup
+  post '/registrations' do #signup
     user = User.create(:username => params[:username], :password => params[:password])
   end
 
