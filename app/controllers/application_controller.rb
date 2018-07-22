@@ -24,9 +24,11 @@ class ApplicationController < Sinatra::Base
     else
       redirect "/sessions/failure"
     end
-
-
   end
+
+  get "/sessions/failure" do 
+    erb :"/sessions/failure"
+  end 
 
   get '/sessions/login' do #login page request
     erb :"/sessions/login"
