@@ -13,19 +13,14 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/create'
   get '/signup' do #signup page request
     erb :'/registrations/signup'
   end
 
   post '/signup' do #signup and redirect
     user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
-
     redirect '/users/home'
-  end
-
-  get '/users/home' do
-    @user = User.find(session[:id])
-    erb :"/users/home"
   end
 
   get '/sessions/login' do #login page request
